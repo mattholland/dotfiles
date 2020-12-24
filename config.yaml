@@ -1,0 +1,24 @@
+#this is the beets config file. create a symlink to it at ~/.config/beets/config.yaml
+
+directory: /Volumes/Media/Music/beets 
+library: /Volumes/Media/Music/musiclibrary.db
+import:
+    move: yes
+plugins: 
+    - discogs
+    - extrafiles
+
+extrafiles:
+    patterns:
+        all: '*'
+        
+#these are regex applied to filenames, currently this is just the dfaults
+replace:
+    '[\\/]': _
+    '^\.': _
+    '[\x00-\x1f]': _
+    '[<>:"\?\*\|]': _
+    '\.$': _
+    '\s+$': ''
+    '^\s+': ''
+    '^-': _
