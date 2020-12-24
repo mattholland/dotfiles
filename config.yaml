@@ -5,13 +5,54 @@ library: /Volumes/Media/Music/musiclibrary.db
 import:
     move: yes
 plugins: 
+    # Use discogs.com as a source for metadata
     - discogs
     - extrafiles
+    # I use beets-alternatives to manage the Rekordbox library
+    - alternatives
+    # The convert plugin is used to convert incoming stuff to FLAC as well as
+    # converting to AIFF (with ffmpeg) when exporting to Rekordbox
+    - convert
+    # Provides the ability to manually edit metadata
+    - edit
+    # Fetch and embed artwork
+    - embedart
+    - fetchart
+
+paths:
+  default: $albumartist/$album%aunique{}/$track $title
+  singleton: $artist/Miscellaneous/$title
+  comp: Various Artists/$album%aunique{}/$track $title
+
+
+convert:
+  auto: yes
+  never_convert_lossy_files: yes
+  format: flac
+  formats:
+    rekordbox:
+      # This converts to 16-bit/44.1kHz AIFF with metadata intact
+      command: ffmpeg -i $source -y -acodec pcm_s16be -sample_fmt s16 -ar 44100 -write_id3v2 1 $dest
+      extension: aiff
+
+alternatives:
+  rekordbox:
+    directory: /Users/jd/Music/Rekordbox
+    query: "rekordbox:true"
+    # Convert to AIFF unless the source file is an MP3
+    formats: rekordbox mp3
 
 extrafiles:
     patterns:
         all: '*'
         
+discogs:
+  source_weight: 0.0
+
+fetchart:
+  auto: yes
+  minwidth: 500
+
 #these are regex applied to filenames, currently this is just the dfaults
 replace:
     '[\\/]': _
