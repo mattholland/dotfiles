@@ -7,7 +7,7 @@ import:
 plugins: 
     # Use discogs.com as a source for metadata
     - discogs
-    - extrafiles
+    #- extrafiles
     # I use beets-alternatives to manage the Rekordbox library
     - alternatives
     # The convert plugin is used to convert incoming stuff to FLAC as well as
@@ -42,12 +42,15 @@ alternatives:
     # Convert to AIFF unless the source file is an MP3
     formats: rekordbox mp3
 
-extrafiles:
-    patterns:
-        all: '*'
+#extrafiles:
+#    patterns:
+#        all: '*'
         
 discogs:
   source_weight: 0.0
+
+musicbrainz:
+  host: localhost:5000
 
 fetchart:
   auto: yes
