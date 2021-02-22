@@ -6,7 +6,7 @@ set -o emacs
 #aliases
 alias la='ls -la'
 alias lsusb='system_profiler SPUSBDataType'
-
+alias bi='beet import'
 
 
 #i don't remember what this does, something about deleting time machine files
