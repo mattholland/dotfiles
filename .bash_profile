@@ -1,3 +1,6 @@
+#silence bash warning from mac os
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 #set commands
 #set -o vi
 set -o emacs
