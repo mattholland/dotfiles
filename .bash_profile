@@ -53,6 +53,7 @@ if [ -f '/Users/mattholland/google-cloud-sdk/path.bash.inc' ]; then . '/Users/ma
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mattholland/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/mattholland/google-cloud-sdk/completion.bash.inc'; fi
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+
+#initialize pyenv and set default python version
+eval "$(pyenv init -)"
+pyenv shell 3.9.1
