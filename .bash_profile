@@ -53,7 +53,14 @@ if [ -f '/Users/mattholland/google-cloud-sdk/path.bash.inc' ]; then . '/Users/ma
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mattholland/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/mattholland/google-cloud-sdk/completion.bash.inc'; fi
 
+<<<<<<< Updated upstream
 
 #initialize pyenv and set default python version
 eval "$(pyenv init -)"
 pyenv shell 3.9.1
+=======
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
+>>>>>>> Stashed changes
